@@ -8,19 +8,34 @@ public class CLIClassique {
 			String arg = args[i];
 			switch (arg) {
 				case "-K": // Valeur de l'indice à calculer
-					config.indice = Integer.parseInt(args[++i]);
+					try {
+						config.setIndice(Integer.parseInt(args[++i]));
+					} catch (NumberFormatException e) {
+						System.out.println("L'indice doit etre un entier");
+						e.printStackTrace();
+					}
 					break;
 				case "-E": // Valeur de la précision à atteindre
-					config.epsilon = Double.parseDouble(args[++i]);
+					try {
+						config.setEpsilon(Double.parseDouble(args[++i]));
+					} catch (NumberFormatException e) {
+						System.out.println("L'epsilon doit etre un decimal");
+						e.printStackTrace();
+					}
 					break;
 				case "-A": // Valeur de alpha
-					config.alpha = Double.parseDouble(args[++i]);
+					try {
+						config.setAlpha(Double.parseDouble(args[++i]));
+					} catch (NumberFormatException e) {
+						System.out.println("L'alpha doit etre un decimal");
+						e.printStackTrace();
+					}
 					break;
 				case "-C": // Mode matrice creuse
-					config.mode = Mode.CREUSE;
+					config.setMode(Mode.CREUSE);
 					break;
 				case "-P": // Mode matrice pleine
-					config.mode = Mode.PLEINE;
+					config.setMode(Mode.PLEINE);
 					break;
 				default:
 					finOptions = arg.length() == 0 || arg.charAt(0) != '-';
