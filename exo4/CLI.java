@@ -4,7 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CLI {
-    Set<Option> options = new HashSet<>();
+    private Set<Option> options = new HashSet<>();
+
+    public CLI() {
+    }
+
+    public CLI(Set<Option> options) {
+        this.options = options;
+    }
 
     public static Application analyser(Application application, String... args) {
         /*boolean finOptions = false;
@@ -53,34 +60,15 @@ public class CLI {
         return application;
     }
 
-    public void ajouterOption(Option option) {
-        options.add(option);
+    public Set<Option> getOptions() {
+        return options;
     }
 
+    public void setOptions(Set<Option> options) {
+        this.options = options;
+    }
 
-    public static void main(String[] args) {
-        // On creer les options
-        Set<Option> options = new HashSet();
-        Option optionK = new Option('K', "Valeur de l'indice à calculer", true);
-        Option optionP = new Option('P', "Mode matrice pleine", false);
-        options.add(optionK);
-        options.add(optionP);
-
-        // On creer la listes des actions
-        Set<Action> actions = new HashSet();
-        /*actions.add(new Action(optionK) {
-            @Override
-            public void faire(Application appli, String[] args, int i) {
-                try {
-                    appli.setIndice(Integer.parseInt(args[++i]));
-                } catch (NumberFormatException e) {
-                    System.out.println("L'indice doit etre un entier");
-                    e.printStackTrace();
-                }
-            }
-        });*/
-
-        // On associe les options aux actions
-        //Application appli = new Application();
+    public void ajouterOption(Option option) {
+        options.add(option);
     }
 }

@@ -2,8 +2,11 @@ package exo4;
 
 import java.util.Set;
 
-public class Application {
+public abstract class Application {
     private Set<Action> actions;
+
+    public Application() {
+    }
 
     public Application(Set<Action> actions) {
         this.actions = actions;
@@ -15,5 +18,9 @@ public class Application {
 
     public void setActions(Set<Action> actions) {
         this.actions = actions;
+    }
+
+    public void addAction(Action action) {
+        actions.add(action);
     }
 }

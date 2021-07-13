@@ -3,9 +3,9 @@ package exo4;
 public class Option {
     private char acces;
     private String description;
-    private Boolean valeur;
+    private boolean valeur;
 
-    public Option(char acces, String description, Boolean valeur) {
+    public Option(char acces, String description, boolean valeur) {
         this.acces = acces;
         this.description = description;
         this.valeur = valeur;
@@ -31,7 +31,7 @@ public class Option {
         return valeur;
     }
 
-    public void setValeur(Boolean valeur) {
+    public void setValeur(boolean valeur) {
         this.valeur = valeur;
     }
 }

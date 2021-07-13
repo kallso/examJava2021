@@ -7,5 +7,5 @@ public abstract class Action {
         this.option = option;
     }
 
-    abstract public void faire(Application appli, String[] args, int i);
+    abstract public void faire(String value);
 }

@@ -11,7 +11,6 @@ public class TestJUnitConfiguration {
     static void setUp() {
         String[] args = "-K 10 -A .90 -K 20 -P -K 30 -C".split("\\s+");
         config = CLIClassique.configuration(args);
-        System.out.println(config);
     }
 
     @Test
