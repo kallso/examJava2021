@@ -1,6 +1,7 @@
 package exo4;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class CLI {
@@ -13,12 +14,28 @@ public class CLI {
         this.options = options;
     }
 
-    public static Application analyser(Application application, String... args) {
-        /*boolean finOptions = false;
+    public void analyser(Application application, Map<Option, Action> optionActionMap, String... args) {
+        boolean finOptions = false;
         int i = 0;
         while (i < args.length && ! finOptions) {
             String arg = args[i];
-            switch (arg) {
+            boolean matched = false;
+
+            for (Option option : options) {
+                if (option.getAcces() == arg.charAt(1)) {
+                    if (option.getValeur()) ++i;
+                    matched = true;
+                    optionActionMap.get(option).faire(args[i], application);
+                }
+            }
+
+            if (!matched) {
+                finOptions = arg.length() == 0 || arg.charAt(0) != '-';
+                if (! finOptions) {
+                    System.out.println("Option inconnue : " + arg);
+                }
+            }
+            /*switch (arg) {
                 case "-K": // Valeur de l'indice à calculer
                     try {
                         appli.setIndice(Integer.parseInt(args[++i]));
@@ -54,10 +71,10 @@ public class CLI {
                     if (! finOptions) {
                         System.out.println("Option inconnue : " + arg);
                     }
-            }
+            }*/
             i++;
-        }*/
-        return application;
+        }
+        //return application;
     }
 
     public Set<Option> getOptions() {

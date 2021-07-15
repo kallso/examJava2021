@@ -35,4 +35,12 @@ public class ConfigReduite extends Application {
     public void setMode(Mode mode) {
         this.mode = mode;
     }
+
+    @Override
+    public String toString() {
+        return "ConfigReduite{" +
+                "indice=" + indice +
+                ", mode=" + mode +
+                '}';
+    }
 }

@@ -1,9 +1,10 @@
 package exo4;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Application {
-    private Set<Action> actions;
+    private Set<Action> actions = new HashSet<>();
 
     public Application() {
     }
@@ -22,5 +23,12 @@ public abstract class Application {
 
     public void addAction(Action action) {
         actions.add(action);
+    }
+
+    @Override
+    public String toString() {
+        return "Application{" +
+                "actions=" + actions +
+                '}';
     }
 }
